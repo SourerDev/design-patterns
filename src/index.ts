@@ -1,6 +1,5 @@
 import fs from 'fs'
-import { execSync } from 'child_process'
-const inquirer = import('inquirer')
+import { runCommand, runInquirer } from './utils'
 const publicFolderPath = './src/examples'
 
 runCommand('clear')
@@ -30,10 +29,3 @@ runInquirer().then((prompt) =>
   })
 )
 
-export async function runInquirer() {
-  return (await inquirer).default.prompt
-}
-export function runCommand(command: string) {
-  const output = execSync(command)
-  console.log(output.toString())
-}
