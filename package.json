@@ -1,0 +1,21 @@
+{
+  "name": "design-patterns",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "start": "npm run tsc && node ./build/index.js",
+    "dev": "ts-node-dev --respawn src/index.ts",
+    "tsc": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@types/inquirer": "9.0.7",
+    "inquirer": "9.2.14"
+  }
+}
