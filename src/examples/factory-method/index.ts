@@ -1,6 +1,20 @@
 import { runCommand } from '../../utils'
+import { CreateCar, CreateMotorCycle } from './vehicles'
 runCommand('clear')
+console.log('Hola')
 
+const new_car = new CreateCar()
+new_car.turnOnVehicle()
+new_car.turnOffVehicle()
+
+const new_motorcycle = new CreateMotorCycle()
+new_motorcycle.turnOnVehicle()
+
+/* 
+type CarProps = {
+  doors?: number
+  getDoors(): number
+}
 interface Vehicle {
   move(): void
   brake(): void
@@ -24,6 +38,13 @@ abstract class BaseVehicle implements Vehicle {
 
 class Car extends BaseVehicle {
   type = 'Car'
+
+  constructor(public doors: number) {
+    super()
+  }
+  public getDoors(): number {
+    return this.doors
+  }
 }
 
 class Motorcycle extends BaseVehicle {
@@ -46,8 +67,12 @@ abstract class BaseFactoryVehicle implements VehicleFactory {
 
 class CarFactory extends BaseFactoryVehicle {
   type = 'car'
-  createVehicle(): Vehicle {
-    return new Car()
+  createVehicle(): Vehicle & CarProps {
+    return new Car(2)
+  }
+
+  getDoors(): number {
+    return 2
   }
 }
 
@@ -70,7 +95,7 @@ class TruckFactory extends BaseFactoryVehicle {
 function CreateFactory(type: string): VehicleFactory {
   switch (type) {
     case 'Car':
-      return new CarFactory()
+      return new CarFactory(2)
     case 'Motorcycle':
       return new MotorcycleFactory()
     case 'Truck':
@@ -80,10 +105,11 @@ function CreateFactory(type: string): VehicleFactory {
   }
 }
 
-const VehicleType = 'Truck'
+const VehicleType = 'Car'
 const factory = CreateFactory(VehicleType)
 const Vehicle = factory.createVehicle()
 
 Vehicle.move()
 Vehicle.brake()
 Vehicle.park()
+ */
