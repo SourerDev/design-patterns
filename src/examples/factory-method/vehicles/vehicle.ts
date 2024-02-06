@@ -7,7 +7,7 @@ export abstract class CreateVehicle {
     this.vehicle = this.createVehicle()
   }
   turnOnVehicle(): void {
-    if (this.vehicle.isOn) console.log('Car is already on')
+    if (this.vehicle.isOn) console.log('Vehicle is already on')
     else {
       this.vehicle.isOn = true
       this.vehicle.turnOn()
@@ -17,7 +17,7 @@ export abstract class CreateVehicle {
     if (this.vehicle.isOn) {
       this.vehicle.isOn = false
       this.vehicle.turnOff()
-    } else console.log("Car isn't running")
+    } else console.log("Vehicle Car isn't running")
   }
 }
 export abstract class BaseVehicle implements Vehicle {
