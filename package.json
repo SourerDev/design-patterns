@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npm run tsc && node ./build/index.js",
     "dev": "ts-node-dev --respawn src/index.ts",
+    "file": "ts-node-dev --respawn",
     "tsc": "tsc"
   },
   "author": "",

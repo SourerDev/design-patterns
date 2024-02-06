@@ -1,33 +1,37 @@
 import { Vehicle } from '../interfaces'
 
-export abstract class CreateVehicle {
-  protected vehicle: Vehicle
+export abstract class CreateVehicleFactory {
+  abstract type: string
   abstract createVehicle(): Vehicle
-  constructor() {
-    this.vehicle = this.createVehicle()
-  }
-  turnOnVehicle(): void {
-    if (this.vehicle.isOn) console.log('Vehicle is already on')
-    else {
-      this.vehicle.isOn = true
-      this.vehicle.turnOn()
-    }
-  }
-  turnOffVehicle(): void {
-    if (this.vehicle.isOn) {
-      this.vehicle.isOn = false
-      this.vehicle.turnOff()
-    } else console.log("Vehicle Car isn't running")
-  }
 }
 export abstract class BaseVehicle implements Vehicle {
   abstract type: string
   public isOn: boolean = false
 
   turnOn(): void {
-    console.log(`${this.type} on: ${this.isOn}`)
+    if (this.isOn) console.log(`${this.type} is already on`)
+    else {
+      this.isOn = true
+      console.log(`${this.type} on: ${this.isOn}`)
+    }
   }
   turnOff(): void {
-    console.log(`${this.type} off: ${this.isOn}`)
+    if (this.isOn) {
+      this.isOn = false
+      console.log(`${this.type} off: ${this.isOn}`)
+    } else console.log(`${this.type} isn't running`)
+  }
+  move(): void {
+    if (this.isOn) console.log(`${this.type} is moving`)
+    else {
+      this.turnOn()
+      console.log(`${this.type} is moving`)
+    }
+  }
+  brake(): void {
+    console.log(`${this.type} is stop`)
+  }
+  park(): void {
+    console.log(`${this.type} is parking`)
   }
 }
