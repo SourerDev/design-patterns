@@ -1,3 +1,4 @@
+import { Colors } from '../interfaces'
 import { Vehicle } from '../interfaces'
 import { BaseVehicle, CreateVehicleFactory } from './vehicle'
 
@@ -7,8 +8,10 @@ class Truck extends BaseVehicle {
 
 export class CreateTruckFactory extends CreateVehicleFactory {
   type: string = 'Truck'
-
-  createVehicle(): Vehicle {
-    return new Truck()
+  constructor(private name: string) {
+    super()
+  }
+  createVehicle(model: string, color: Colors): Vehicle {
+    return new Truck({ brand: this.name, model, color })
   }
 }

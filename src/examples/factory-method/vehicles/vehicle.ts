@@ -1,12 +1,14 @@
-import { Vehicle } from '../interfaces'
+import { Vehicle, Colors, Props } from '../interfaces'
 
 export abstract class CreateVehicleFactory {
   abstract type: string
-  abstract createVehicle(): Vehicle
+  abstract createVehicle(model: string, color:Colors): Vehicle
 }
 export abstract class BaseVehicle implements Vehicle {
   abstract type: string
   public isOn: boolean = false
+  public model: string = ''
+  constructor(public props: Props) {}
 
   turnOn(): void {
     if (this.isOn) console.log(`${this.type} is already on`)
