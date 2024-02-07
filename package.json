@@ -16,7 +16,9 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@types/color": "^3.0.6",
     "@types/inquirer": "9.0.7",
+    "colors": "^1.4.0",
     "inquirer": "9.2.14"
   }
 }
