@@ -13,8 +13,6 @@ export type Props = {
   model: string
   color: Colors
 }
-export enum Colors {
-  RED = 'Red',
-  BLUE = 'Blue',
-  BLACK = 'Black',
-}
+
+export type Colors = (typeof _colors)[number]
+const _colors = ['Red', 'Blue', 'Black'] as const

@@ -9,21 +9,12 @@ runCommand('clear')
 console.log('Welcome to Factory Method')
 
 const nissan = new CreateCarFactory('nissan')
-console.log(nissan.getName())
-const carOne = nissan.createVehicle('NISSAN-RS45', Colors.BLACK)
+const carOne = nissan.createVehicle('NISSAN-RS45', 'Blue')
+const basicInfo = carOne.getBasicInformation()
+carOne.setDoors(2)
+carOne.setFuelType('Electric')
 
-carOne.turnOn()
-console.log(carOne.props.model)
+const Info = carOne.getInformation()
 
-/*carOne.move()
-carOne.brake()
-carOne.park()
-
-const honda = new CreateMotorCycleFactory() 
-const motorcycleOne = honda.createVehicle()
-motorcycleOne.turnOn()
-
-
-const international = new CreateTruckFactory()
-const truckOne = international.createVehicle()
-truckOne.turnOn() */
+console.log('Basic Information:', basicInfo)
+console.log('Information:', Info)

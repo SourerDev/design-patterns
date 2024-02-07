@@ -2,13 +2,15 @@ import { Vehicle, Colors, Props } from '../interfaces'
 
 export abstract class CreateVehicleFactory {
   abstract type: string
-  abstract createVehicle(model: string, color:Colors): Vehicle
+  abstract createVehicle(model: string, color: Colors): Vehicle
 }
 export abstract class BaseVehicle implements Vehicle {
   abstract type: string
   public isOn: boolean = false
-  public model: string = ''
-  constructor(public props: Props) {}
+  constructor(public props: Props) {
+    console.log(`A new ${this.props.brand} model has been created`);
+    
+  }
 
   turnOn(): void {
     if (this.isOn) console.log(`${this.type} is already on`)
@@ -35,5 +37,11 @@ export abstract class BaseVehicle implements Vehicle {
   }
   park(): void {
     console.log(`${this.type} is parking`)
+  }
+
+  getBasicInformation(): object {
+    return {
+      ...this.props,
+    }
   }
 }
