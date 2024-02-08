@@ -18,3 +18,9 @@ const Info = carOne.getInformation()
 
 console.log('Basic Information:', basicInfo)
 console.log('Information:', Info)
+
+const yamaha = new CreateMotorCycleFactory('Yamaha')
+const motoOne = yamaha.createVehicle('XTZ 250', 'Blue')
+
+motoOne.setOffRoadCapability(true)
+console.log('Information: ', motoOne.getInformation())
