@@ -24,3 +24,10 @@ const motoOne = yamaha.createVehicle('XTZ 250', 'Blue')
 
 motoOne.setOffRoadCapability(true)
 console.log('Information: ', motoOne.getInformation())
+
+const international = new CreateTruckFactory('International')
+const truckOne = international.createVehicle('INT 34N', 'Black')
+
+truckOne.setTrailerType('crane')
+truckOne.setDimensions({ _length: 5, width: 2, height: 3 })
+console.log('Information: ', truckOne.getInformation())
